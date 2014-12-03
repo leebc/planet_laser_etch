@@ -1,0 +1,33 @@
+WIDTH=2550;
+HEIGHT=2550;
+MIN_GRAY=0
+MAX_GRAY=255;
+
+function draw_line_of {
+	for x in `seq 1 1 $WIDTH`
+	do
+		echo -n "$1 "
+	done
+}
+
+
+#Header:
+
+echo P2
+echo $WIDTH $HEIGHT
+echo $MAX_GRAY
+
+for THIS_GRAY in ` seq $MIN_GRAY 1 $MAX_GRAY `
+do
+	draw_line_of $THIS_GRAY ; echo;
+	draw_line_of 0;	echo;
+	draw_line_of $THIS_GRAY ; echo;
+	draw_line_of 0;	echo;
+	draw_line_of $THIS_GRAY ; echo;
+
+	draw_line_of 0;	echo;
+	draw_line_of 0;	echo;
+	draw_line_of 0;	echo;
+	draw_line_of 0;	echo;
+	draw_line_of 0;	echo;
+done
